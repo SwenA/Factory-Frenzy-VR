@@ -1,0 +1,391 @@
+fileFormatVersion: 2
+guid: 54df6f5569d48904ea3769697924a76d
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ALIU MAT
+    second: {fileID: 2100000, guid: 1285567f6ef35384c81a8c6bba8f8ec3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GALVA
+    second: {fileID: 2100000, guid: 0ddfbc5da2e42e04d959fcdf701221ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MUR
+    second: {fileID: 2100000, guid: 18b8edb0abcde504d8d643b978572736, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PIPE
+    second: {fileID: 2100000, guid: fdb303bab39ba1f4d8fd967022887e19, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: alu
+    second: {fileID: 2100000, guid: 285184f9b0fe4cb4c9d21c6777e050be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: armoire_facing
+    second: {fileID: 2100000, guid: 1c04c0aa728617545b868bc97850077f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: boitier_garage
+    second: {fileID: 2100000, guid: 01a1f455deecce34ea51a761d2af4920, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cable_bleu
+    second: {fileID: 2100000, guid: 14f2e6b480104ac41a743aed04bf68e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cardboprad
+    second: {fileID: 2100000, guid: 8bc916d3781ac734e91901ef6cb8fff8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chaine
+    second: {fileID: 2100000, guid: 2486748c6ffcfed4f95c08c57d4bc0a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: decal_vinyl
+    second: {fileID: 2100000, guid: 6e8eac9b97f98434c8658b7a10d03acf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: emissif
+    second: {fileID: 2100000, guid: 15da62b8d981cb74ead2f81a3e9f88fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glas_garage
+    second: {fileID: 2100000, guid: 9deb0a599589fec4aa15af853cf6c414, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass_windows
+    second: {fileID: 2100000, guid: c07c3546c839ef44da6ba5d3cfb46f57, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ground_vinyl
+    second: {fileID: 2100000, guid: d44ce9c9ca4322044bc097f04b2abc15, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: info
+    second: {fileID: 2100000, guid: 9c2789a6460ac134abae3353b6439242, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: inox
+    second: {fileID: 2100000, guid: 5af336f917824e64caa392471f73f005, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lamelle
+    second: {fileID: 2100000, guid: 6111967903b2d6742a8902ef4c3a9217, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plastic_glossy
+    second: {fileID: 2100000, guid: c77df1a25856d1547a8bb0414a12d9be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plastic_mat
+    second: {fileID: 2100000, guid: a283f91de6b31f042a753b3fb68281a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: poteau
+    second: {fileID: 2100000, guid: 88516d6b1b3e154419379dd741f968fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: roof_cement
+    second: {fileID: 2100000, guid: 6cc22da2f92448649ae4e1c0c3c050b6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sticker_ino
+    second: {fileID: 2100000, guid: e2a90521a9769cc4ba6e86e150309950, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: store
+    second: {fileID: 2100000, guid: 857cfa0e9ae465c4a87263288366f13d, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: CESI_pipe_Hotte_ALU _AlbedoTransparency_Utility - sRGB - Texture
+    second: {fileID: 2800000, guid: 0f2fa2b0fec54b34a9ad1681189e49bf, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: CESI_pipe_Hotte_ALU _MetallicSmoothness_Utility - Raw
+    second: {fileID: 2800000, guid: 7c50bb7bc72a6c8459a58a540097c889, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: CESI_pipe_Hotte_ALU _Normal_Utility - Raw
+    second: {fileID: 2800000, guid: bee865289defb144d8dcae42f8769416, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_FabricPlain0154_1_S
+    second: {fileID: 2800000, guid: 1ca9e3f566c706148af734c0b3c59871, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: amort_garage2_D
+    second: {fileID: 2800000, guid: 94e5af76d8df2e5408986da6e9fe3216, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: armoire_facing_D
+    second: {fileID: 2800000, guid: 1c0d508581902b142a0ca1f8502da1ef, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: armoire_facing_M
+    second: {fileID: 2800000, guid: f30b22c6b067a2f4ebda55eb5505acc5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: armoire_facing_NM
+    second: {fileID: 2800000, guid: 97cb100ec0fa15c4097f204bfc0d846f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: boitier_comand_garage_D
+    second: {fileID: 2800000, guid: ccc0175767eba8040a4a3a7f512eb236, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ceement_ROOF
+    second: {fileID: 2800000, guid: 2589c08c565f375429d1844f298a850c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: chain_link_D
+    second: {fileID: 2800000, guid: 1564a6eb5935de0478cf18eafa70481c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: colors
+    second: {fileID: 2800000, guid: f33fe68bda024bf408a5aa12ca876468, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: decal_vinyl_D
+    second: {fileID: 2800000, guid: 9de25822a56c3614697b3be9e4bf23dc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: decal_vinyl_M
+    second: {fileID: 2800000, guid: 25eb6c4eac86d48478b0b5f468966922, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: decal_vinyl_NM
+    second: {fileID: 2800000, guid: 9b7386138a9be9446a164ba7a8a78e2d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: fenetre_garage_D
+    second: {fileID: 2800000, guid: cb04bf78807608d429eee32707efe0fd, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ground_vinyle_D
+    second: {fileID: 2800000, guid: 2012a4a461f3911448707f63eab0dada, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ground_vinyle_NM
+    second: {fileID: 2800000, guid: fa8a06a125762104e9d1c37510dc1fca, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ground_vinyle_RM
+    second: {fileID: 2800000, guid: 67d979c2afc7c094e8b21f807f6d4292, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: planche_info_picto
+    second: {fileID: 2800000, guid: 3db93bc8e62ec8340b3b028df4898526, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scnmcgnp_2K_Albedo
+    second: {fileID: 2800000, guid: c6f659694b341164d88edf01e4d8acda, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scnmcgnp_2K_Metalness
+    second: {fileID: 2800000, guid: 6c26bbb688b346341ad64db366d4ab1f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scnmcgnp_2K_Normal
+    second: {fileID: 2800000, guid: f5a897cc9ee8bb6499767a00afc13f29, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scnmcgnp_2K_Roughness
+    second: {fileID: 2800000, guid: fb84849b93704e94593b7d7587b31ffe, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: sol_pteaux_D
+    second: {fileID: 2800000, guid: 17bb461ccad4e574e90c1dacfe53f49b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: sol_pteaux_M
+    second: {fileID: 2800000, guid: ef64a5de5ea8fb647b4569cc78506113, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: sol_pteaux_NM
+    second: {fileID: 2800000, guid: 79d23f123ba8b2e4ea16e4d15fa70148, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: texture_info
+    second: {fileID: 2800000, guid: 46ca20bb15eb25e469d6ad4d4329cb61, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: tgvkaidn_2K_Albedo
+    second: {fileID: 2800000, guid: 86b6d5ffef9319745aa581afa937ea7f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: tgvkaidn_2K_Normal
+    second: {fileID: 2800000, guid: 7345c6f99217eb344b915ba0ba328cfc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: tgvkaidn_2K_Roughness
+    second: {fileID: 2800000, guid: eb22515b57768f041832610f7d975dfa, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: whtjeer_2K_Normal
+    second: {fileID: 2800000, guid: ab8f6882925579b419e485a728779f0a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: whtjeer_2K_Roughness
+    second: {fileID: 2800000, guid: ca808e0cb50cbe346b157b6453eae748, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

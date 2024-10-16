@@ -1,0 +1,2 @@
+DO NOT DELETE
+This file is put in each folder in order to allow git to track the folder even if there is nothing in it

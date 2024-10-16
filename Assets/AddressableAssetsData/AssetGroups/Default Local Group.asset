@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 6815561c88192bc4b8b3344b5a3462a9
+  m_SerializeEntries:
+  - m_GUID: 2699618de50e6804b97bdf7fb48564bc
+    m_Address: PLA360
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: facee318fb43b724aa1bad024fad2e8f
+    m_Address: PLA520
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ee7f6e77dd8b6a4083726485da5b624
+    m_Address: PLA START
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f6826344350b4a4caeafc5cf1c082d0
+    m_Address: PLA80
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eac2e128ec83cff40ae9c74a5da924bc
+    m_Address: PLA END
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cbef053bb7f0361469609f5fd499b1d2
+    m_Address: PLA520_move
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb393791a18ada94eb066a003dd9bcab
+    m_Address: PLA CHECKPOINT
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb5ffd9ee1c84f540bc4c0f79c50f967
+    m_Address: PLA TRAMPOLINE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 314d91501ee14ad40998d5f8d2644b7e
+    m_Address: TRA SHOOTER
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f435be22e896f3d46b31461983ef50bc
+    m_Address: TRA BUMPER
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fff5ce17bdec2aa45bda1ca50537819c
+    m_Address: TRA FAN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 15dfc427c2e7d1c49ab4fb9ed17a7a3f, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 8317a6cf30bbfc9488aa888fe69c4e6f, type: 2}
+    - {fileID: 11400000, guid: c6677a81ec39c424fa23cceaa2a8426b, type: 2}

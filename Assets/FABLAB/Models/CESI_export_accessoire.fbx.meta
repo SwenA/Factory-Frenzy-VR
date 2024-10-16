@@ -1,0 +1,279 @@
+fileFormatVersion: 2
+guid: bc53649ea5e5c98409a8f0aae6c106ad
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ALIU MAT
+    second: {fileID: 2100000, guid: 81c5092ff8a58604eb3f414c384c629e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: alu
+    second: {fileID: 2100000, guid: 6fcd30b220886cd4fbef73a0f9a7f534, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: alu brosse
+    second: {fileID: 2100000, guid: a541cd93d63b8c54990e8d8a93898e54, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: armoire_facing
+    second: {fileID: 2100000, guid: fb037e20b63816345984adc4406de7e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: branding
+    second: {fileID: 2100000, guid: c9bbaae1d327ebf4f8711f7ec97acc24, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "d\xE9coupe_tapis"
+    second: {fileID: 2100000, guid: 09a58ca2a16a0b54db71f7fd043d865f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: emissif
+    second: {fileID: 2100000, guid: 9c98ac09cac5c234c915ea1a0950b4bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass_windows
+    second: {fileID: 2100000, guid: 57fdf7b484227da4d816fa392fcb212d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: inox
+    second: {fileID: 2100000, guid: aed2e698147994c44aaa0e1fe302608f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal glossy_email
+    second: {fileID: 2100000, guid: 4837e30e7c04c1945be561ce267c5a8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal_matte
+    second: {fileID: 2100000, guid: 47265d73b2904f04fa7121e64aca92f7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: outil_back
+    second: {fileID: 2100000, guid: bbb0ce068a3f64f4ca5b8546e3cc8933, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: photo_outis
+    second: {fileID: 2100000, guid: 7b27a97a606f7a84bb9d5658e909597d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plastic_glossy
+    second: {fileID: 2100000, guid: a6452f277dc04c54185636f033acaa83, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plastic_mat
+    second: {fileID: 2100000, guid: 1a451e90ac5bf054689b65fd594dedbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sticker_ino
+    second: {fileID: 2100000, guid: 49581db7e56749749a06db600d677973, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: uv_checker_material_uv_grid_1024x1024
+    second: {fileID: 2100000, guid: 2acb83b8117109044ae9820e0c42d16b, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Bench_porte_outils_Dx2048
+    second: {fileID: 2800000, guid: fdfd72e56b4ad234b90fd8814e9610e6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Bench_porte_outils_Dx2048_back
+    second: {fileID: 2800000, guid: d869087ab41a2094c98230b0f9701491, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: CESI_bloc_CIAT_uv_checker_material_uv_grid_1024x1024_AlbedoTransparency_Utility
+        - sRGB - Texture
+    second: {fileID: 2800000, guid: 8fa40aaf5915f86479984504af6bf560, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: CESI_bloc_CIAT_uv_checker_material_uv_grid_1024x1024_MetallicSmoothness_Utility
+        - Raw
+    second: {fileID: 2800000, guid: 9dc8798033f4fce4a91f4151f3c8593d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: CESI_bloc_CIAT_uv_checker_material_uv_grid_1024x1024_Normal_Utility -
+        Raw
+    second: {fileID: 2800000, guid: c241850a7b5961e42acc8e9d6c08cc48, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: alu_brosse_D
+    second: {fileID: 2800000, guid: 1dcbe4c9547830e49ab00407661e54d2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: armoire_facing_D
+    second: {fileID: 2800000, guid: 66886d64ed864564aa1de114e2bde97d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: armoire_facing_M
+    second: {fileID: 2800000, guid: bf649478162ce544c9a9116eb235fe0c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: armoire_facing_NM
+    second: {fileID: 2800000, guid: 43be7198ed6996c4a801dfb97adae729, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: bandeau_branding
+    second: {fileID: 2800000, guid: 4fbb8b7985c4d3c478b91b0677e5a89d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: colors
+    second: {fileID: 2800000, guid: d3709efe3afb0b944b93089b476313ed, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: planche_info_picto_update2k
+    second: {fileID: 2800000, guid: 6213e3ee48ffc9049b12cd973f154496, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scnmcgnp_2K_Albedo
+    second: {fileID: 2800000, guid: f9cddff5315ab6b40b8a633fb083162e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scnmcgnp_2K_Metalness
+    second: {fileID: 2800000, guid: c8027dee98e822747a620b665f22c917, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scnmcgnp_2K_Normal
+    second: {fileID: 2800000, guid: d2c7e577ed8cf0f449307d671cb78742, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scnmcgnp_2K_Roughness
+    second: {fileID: 2800000, guid: 80d00530653263346b30b46cf81cb16e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: "tapis_d\xE9coupe_D"
+    second: {fileID: 2800000, guid: 208705045d362ea43b165e47b53cbf68, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
