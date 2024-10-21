@@ -70,6 +70,7 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        loadLevel("level.json");
+        // Use the map name as needed
+        Debug.Log("Loaded map name: " + PlayerPrefs.GetString("mapName"));
     }
 }
