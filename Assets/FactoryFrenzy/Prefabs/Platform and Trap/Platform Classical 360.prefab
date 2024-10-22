@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6770514611414996862}
   m_Layer: 0
   m_Name: Platform Classical 360
-  m_TagString: Untagged
+  m_TagString: LevelObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

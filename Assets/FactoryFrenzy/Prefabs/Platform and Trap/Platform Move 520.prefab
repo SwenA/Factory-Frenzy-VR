@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6000269958333969884}
   m_Layer: 0
   m_Name: Platform Move 520
-  m_TagString: Untagged
+  m_TagString: LevelObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
