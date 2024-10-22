@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
             levelObjects.Add(levelObject);
         }
 
-        string path = Path.Combine(Application.dataPath, levelName);
+        string path = Path.Combine(Application.dataPath, "levels", levelName + ".json");
         string json = JsonConvert.SerializeObject(levelObjects, Formatting.Indented);
 
         using (StreamWriter file = new StreamWriter(path))
@@ -44,7 +44,7 @@ public class LevelManager : MonoBehaviour
 
     public void loadLevel(string levelName)
     {
-        string path = Path.Combine(Application.dataPath, levelName);
+        string path = Path.Combine(Application.dataPath, "levels", levelName + ".json");
         string json = File.ReadAllText(path);
 
         List<LevelObject> levelObjects = JsonConvert.DeserializeObject<List<LevelObject>>(json);
@@ -70,7 +70,13 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        // Use the map name as needed
-        Debug.Log("Loaded map name: " + PlayerPrefs.GetString("mapName"));
+        if (File.Exists(Path.Combine(Application.dataPath, "levels", PlayerPrefs.GetString("mapName") + ".json")))
+        {
+            loadLevel(PlayerPrefs.GetString("mapName"));
+        }
+        else 
+        {
+            saveLevel(PlayerPrefs.GetString("mapName"));
+        }
     }
 }
