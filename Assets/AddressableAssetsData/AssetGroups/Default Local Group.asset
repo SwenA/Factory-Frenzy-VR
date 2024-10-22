@@ -48,7 +48,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cb393791a18ada94eb066a003dd9bcab
-    m_Address: PLA CHECKPOINT
+    m_Address: Assets/FactoryFrenzy/Prefabs/Platform and Trap/Platform Checkpoint.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
