@@ -11,7 +11,7 @@ public class Item : MonoBehaviour
     [SerializeField] public Quaternion itemRot;
     [SerializeField] public Vector3 itemScale;
     XRGrabInteractable grabInteractable;
-    private bool isInSlot = true;
+    public bool isInSlot = true;
     private bool canBeDestroyed = false;
     // Start is called before the first frame update
     void Start()
@@ -38,7 +38,8 @@ public class Item : MonoBehaviour
             Debug.Log("Picked up item: " + pickedItem.name);
             pickedItem.transform.localScale = Vector3.one;
             pickedItem.GetComponent<Item>().isInSlot = false;
-            Instantiate(gameObject, slot, false);
+            GameObject nvlobj = Instantiate(gameObject, slot, false);
+            nvlobj.GetComponent<Item>().isInSlot = true;
         }
     }
 
