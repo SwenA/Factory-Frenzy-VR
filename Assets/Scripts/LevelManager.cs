@@ -2,6 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using Newtonsoft.Json;
+using Unity.XR.CoreUtils;
+using Unity.VisualScripting;
+using UnityEngine.XR.Interaction.Toolkit;
 
 
 public struct SerializableVector3
@@ -60,6 +63,7 @@ public struct LevelObject
   public SerializableVector3 position;
   public SerializableQuaternion rotation;
   public SerializableVector3 scale;
+  public SerializableVector3 MoveToPosition;
 }
 
 
@@ -73,11 +77,23 @@ public class LevelManager : MonoBehaviour
 
       foreach (GameObject obj in GameObject.FindGameObjectsWithTag("LevelObject"))
       {
+        Debug.Log("Saving object: " + obj.name);
+
         LevelObject levelObject = new LevelObject();
         levelObject.prefabName = obj.name.Split('(')[0].Trim();
         levelObject.position = obj.transform.position;
         levelObject.rotation = obj.transform.rotation;
         levelObject.scale = obj.transform.localScale;
+
+        if (levelObject.prefabName == "Platform Move 520")
+        {
+          // ajouter a obj une variable vec 3
+          levelObject.MoveToPosition = obj.GetComponent<MovePlat>().MoveToSphere.GetComponent<Transform>().position;
+        }
+        else
+        {
+          levelObject.MoveToPosition = Vector3.zero;
+        }
 
         levelObjects.Add(levelObject);
       }
@@ -110,6 +126,19 @@ public class LevelManager : MonoBehaviour
                     obj.GetComponent<Item>().itemPos = levelObject.position;
                     obj.GetComponent<Item>().itemRot = levelObject.rotation;
                     obj.GetComponent<Item>().itemScale = levelObject.scale;
+                    obj.GetComponent<Item>().isInSlot = false;
+
+                    obj.tag = "LevelObject";
+
+                    if (prefab.name == "Platform Move 520")
+                    {
+                        
+                        // instanciate the default sphere
+                        obj.GetComponent<MovePlat>().instanciateSphere(levelObject.MoveToPosition);
+
+                        Debug.Log("Loading well plat object: " + obj.GetComponent<MovePlat>().MoveToSphere);
+                    }
+
                     break;
                 }
             }
