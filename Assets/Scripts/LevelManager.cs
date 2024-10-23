@@ -62,77 +62,81 @@ public struct LevelObject
   public SerializableVector3 scale;
 }
 
+
 public class LevelManager : MonoBehaviour
 {
     public GameObject[] levelObjectsPrefab;
 
     public void saveLevel(string levelName)
     {
-        List<LevelObject> levelObjects = new List<LevelObject>();
+      List<LevelObject> levelObjects = new List<LevelObject>();
 
-        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("LevelObject"))
-        {
-            LevelObject levelObject = new LevelObject();
-            levelObject.prefabName = obj.name.Split('(')[0].Trim();
-            levelObject.position = obj.transform.position;
-            levelObject.rotation = obj.transform.rotation;
-            levelObject.scale = obj.transform.localScale;
+      foreach (GameObject obj in GameObject.FindGameObjectsWithTag("LevelObject"))
+      {
+        LevelObject levelObject = new LevelObject();
+        levelObject.prefabName = obj.name.Split('(')[0].Trim();
+        levelObject.position = obj.transform.position;
+        levelObject.rotation = obj.transform.rotation;
+        levelObject.scale = obj.transform.localScale;
 
-            levelObjects.Add(levelObject);
-        }
+        levelObjects.Add(levelObject);
+      }
 
-        string path = Path.Combine(Application.dataPath, "levels", levelName + ".json");
-        string json = JsonConvert.SerializeObject(levelObjects, Formatting.Indented);
+      Debug.Log("Saving level with " + levelObjects.Count + " objects");
 
-        using (StreamWriter file = new StreamWriter(path))
-        {
-            file.Write(json);
-        }
+      string filePath = Path.Combine(getLevelFolderPath(), levelName + ".json");
 
-        Debug.Log("Level saved to: " + path);
+      string json = JsonConvert.SerializeObject(levelObjects, Formatting.Indented);
+      File.WriteAllText(filePath, json);
+
+      Debug.Log("Level saved to: " + filePath);
     }
 
     public void loadLevel(string levelName)
     {
-        string path = Path.Combine(Application.dataPath, "levels", levelName + ".json");
-        string json = File.ReadAllText(path);
+        string filePath = Path.Combine(getLevelFolderPath(), levelName + ".json");
+        string json = File.ReadAllText(filePath);
 
         List<LevelObject> levelObjects = JsonConvert.DeserializeObject<List<LevelObject>>(json);
 
         foreach (LevelObject levelObject in levelObjects)
         {
-            // check if level object name is in the list of prefab
             foreach(GameObject prefab in levelObjectsPrefab)
             {
                 if (prefab.name == levelObject.prefabName)
                 {
                     GameObject obj = Instantiate(prefab, levelObject.position, levelObject.rotation);
                     obj.transform.localScale = levelObject.scale;
+                    obj.GetComponent<Item>().itemPos = levelObject.position;
+                    obj.GetComponent<Item>().itemRot = levelObject.rotation;
+                    obj.GetComponent<Item>().itemScale = levelObject.scale;
                     break;
                 }
             }
         }
 
-        Debug.Log("Level loaded from: " + path);
+        Debug.Log("Level loaded from: " + filePath);
+    }
+
+    private string getLevelFolderPath()
+    {
+        string levelFolderPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "FallGuysProj", "levels");
+
+        if (!Directory.Exists(levelFolderPath))
+        {
+            Directory.CreateDirectory(levelFolderPath);
+        }
+
+        return levelFolderPath;
     }
 
     void Start()
     {
-        if (File.Exists(Path.Combine(Application.dataPath, "levels", PlayerPrefs.GetString("mapName") + ".json")))
-        {
-            loadLevel(PlayerPrefs.GetString("mapName"));
-        }
-        else 
-        {
-            saveLevel(PlayerPrefs.GetString("mapName"));
-        }
+        loadLevel(PlayerPrefs.GetString("mapName"));
     }
 
-    void Update()
+    void OnApplicationQuit()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            saveLevel(PlayerPrefs.GetString("mapName"));
-        }
+        saveLevel(PlayerPrefs.GetString("mapName"));
     }
 }

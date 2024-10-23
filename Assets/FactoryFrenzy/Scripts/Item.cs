@@ -7,9 +7,9 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class Item : MonoBehaviour
 {
     [SerializeField] private Transform slot;
-    [SerializeField] private Vector3 itemPos;
-    [SerializeField] private Quaternion itemRot;
-    [SerializeField] private Vector3 itemScale;
+    [SerializeField] public Vector3 itemPos;
+    [SerializeField] public Quaternion itemRot;
+    [SerializeField] public Vector3 itemScale;
     XRGrabInteractable grabInteractable;
     private bool isInSlot = true;
     private bool canBeDestroyed = false;
@@ -47,6 +47,7 @@ public class Item : MonoBehaviour
         GameObject pickedItem = args.interactableObject.transform.gameObject;
         if (pickedItem != null)
         {
+            pickedItem.tag = "LevelObject";
             if(canBeDestroyed)
             {
                 Destroy(pickedItem);
