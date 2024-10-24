@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Track
-  m_Shader: {fileID: 4800000, guid: 459d5cad88397d34f82a0eb0f21630e3, type: 3}
+  m_Shader: {fileID: 4800000, guid: d8aed5727f5083b49a95c7859c904359, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -52,7 +52,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8a1deebfc789afe45bbad7b1cb1838d3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 556f026c41265f44786a67ce52be7ade, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:

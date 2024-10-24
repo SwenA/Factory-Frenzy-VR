@@ -6,9 +6,21 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class MovePlat : MonoBehaviour
 {
     public GameObject MoveToSphere;
+    public GameObject SpherePrefab;
     
     void Start() {
         GetComponent<XRGrabInteractable>().selectExited.AddListener(onExited);
+        if (MoveToSphere != null)
+        {   
+            GetComponent<LineSnapper>().endPoint = MoveToSphere.transform;
+        }
+        else
+        {
+            // deactivates the line snapper
+            GetComponent<LineSnapper>().enabled = false;
+            // deactivates the line renderer
+            GetComponent<LineRenderer>().enabled = false;
+        }
     }
 
     void onExited(SelectExitEventArgs args) 
@@ -22,14 +34,16 @@ public class MovePlat : MonoBehaviour
     public void instanciateSphere(Vector3 position) 
     {
         // instanciate the default sphere
-        MoveToSphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        MoveToSphere.transform.position = position;
-        MoveToSphere.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+        MoveToSphere = Instantiate(SpherePrefab, position, Quaternion.identity);
 
-        // add Xr grab interactable to the sphere
-        MoveToSphere.AddComponent<XRGrabInteractable>();
-        MoveToSphere.GetComponent<Rigidbody>().isKinematic = true;
-        MoveToSphere.GetComponent<Rigidbody>().useGravity = false;
+        // activate the line snapper
+        GetComponent<LineSnapper>().enabled = true;
+        // activate the line renderer
+        GetComponent<LineRenderer>().enabled = true;
+
+        // set the sphere as the new target
+        GetComponent<LineSnapper>().endPoint = MoveToSphere.transform;
+        
     }
 
 }

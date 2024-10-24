@@ -7,7 +7,7 @@ public class LineSnapper : MonoBehaviour
     private Transform startPoint; // Premier objet (départ de la ligne)
 
     [SerializeField]
-    private Transform endPoint; // Deuxième objet (fin de la ligne)
+    public Transform endPoint; // Deuxième objet (fin de la ligne)
 
     private LineRenderer lineRenderer;
 
