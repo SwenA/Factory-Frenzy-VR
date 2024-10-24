@@ -288,7 +288,7 @@ public class Item : MonoBehaviour
 
     void SmartPlacement (ActivateEventArgs args)
     {
-        if (args.interactorObject.transform.parent.name == "right Controller")
+        if (args.interactorObject.transform.parent.name == "Right Controller")
         {
             Vector3 itemRotation = transform.rotation.eulerAngles;
             itemRotation.x = Mathf.Round(itemRotation.x / 10) * 10;
