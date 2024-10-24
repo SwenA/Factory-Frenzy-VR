@@ -46,4 +46,13 @@ public class MovePlat : MonoBehaviour
         
     }
 
+    // on delete, delete the sphere
+    void OnDestroy()
+    {
+        if (MoveToSphere != null)
+        {
+            Destroy(MoveToSphere);
+        }
+    }
+
 }
