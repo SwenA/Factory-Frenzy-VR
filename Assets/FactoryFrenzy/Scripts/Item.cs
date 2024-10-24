@@ -16,6 +16,9 @@ public class Item : MonoBehaviour
     private bool canBeDestroyed = false;
     private bool isLocked = false;
 
+    private AudioSource audioSourceGrab;
+    private AudioSource audioSourceDrop;
+
     void Start()
     {
         transform.localPosition = itemPos;
@@ -25,13 +28,15 @@ public class Item : MonoBehaviour
         grabInteractable.selectEntered.AddListener(PickUpItem);
         grabInteractable.selectExited.AddListener(PutDownItem);
         grabInteractable.activated.AddListener(lockItem);
+
+        // add audio source
+        audioSourceGrab = gameObject.AddComponent<AudioSource>();
+        audioSourceGrab.clip = Resources.Load<AudioClip>("grab");
+        audioSourceDrop = gameObject.AddComponent<AudioSource>();
+        audioSourceDrop.clip = Resources.Load<AudioClip>("drop");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
 
     public void lockItem(ActivateEventArgs args)
     {
@@ -89,6 +94,7 @@ public class Item : MonoBehaviour
             GameObject nvlobj = Instantiate(gameObject, slot, false);
             nvlobj.GetComponent<Item>().isInSlot = true;
         }
+        audioSourceGrab.Play();
     }
 
     public void PutDownItem(SelectExitEventArgs args)
@@ -102,6 +108,7 @@ public class Item : MonoBehaviour
                 Destroy(pickedItem);
             }
         }
+        audioSourceDrop.Play();
     }
 
     void OnTriggerEnter(Collider other)
