@@ -208,6 +208,7 @@ MonoBehaviour:
   itemPos: {x: 0, y: 0, z: 0}
   itemRot: {x: 0, y: 0, z: 0, w: 0}
   itemScale: {x: 0, y: 0, z: 0}
+  isInSlot: 1
 --- !u!114 &3201246123536563376
 MonoBehaviour:
   m_ObjectHideFlags: 0

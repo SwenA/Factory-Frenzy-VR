@@ -17,6 +17,9 @@ public class Item : MonoBehaviour
     private bool canBeDestroyed = false;
     private InputDevice device;
     private bool rotationActivated = false;
+    private bool smartPlacementActivated = false; 
+    private Vector3 itemLastRotation;
+    private Vector3 itemLastPosition;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,7 @@ public class Item : MonoBehaviour
         grabInteractable = GetComponent<XRGrabInteractable>();
         grabInteractable.selectEntered.AddListener(PickUpItem);
         grabInteractable.selectExited.AddListener(PutDownItem);
+        grabInteractable.activated.AddListener(SmartPlacement);
     }
 
     // Update is called once per frame
@@ -34,6 +38,8 @@ public class Item : MonoBehaviour
     {
         if (grabInteractable.isSelected)
         {
+            itemLastPosition = gameObject.transform.position;
+            itemLastRotation = gameObject.transform.eulerAngles;
             bool primary2DAxisClick;
             Vector2 primary2DAxisValue;
             device.TryGetFeatureValue(CommonUsages.primary2DAxisClick, out primary2DAxisClick);
@@ -45,7 +51,6 @@ public class Item : MonoBehaviour
                 // Debug.Log("Primary 2D Axis Click: " + primary2DAxisClick + ", Rotation Activated: " + !rotationActivated);
                 Debug.Log(primary2DAxisValue.x);
                 rotationActivated = true;
-                SmartPlacement(true);
                 if (primary2DAxisValue.x > 0.5f)
                 {
                     StartCoroutine(RotateItemX(10f));
@@ -73,7 +78,11 @@ public class Item : MonoBehaviour
     IEnumerator RotateItemX(float rotation)
     {
         // Debug.Log("Rotating item");
-        
+        Vector3 itemRotation = transform.rotation.eulerAngles;
+        itemRotation.x = Mathf.Round(itemRotation.x / 10) * 10;
+        itemRotation.y = Mathf.Round(itemRotation.y / 10) * 10;
+        itemRotation.z = Mathf.Round(itemRotation.z / 10) * 10;
+        transform.rotation = Quaternion.Euler(itemRotation);
         transform.Rotate(Vector3.up, rotation);
         yield return new WaitForSeconds(0.1f);
         
@@ -82,7 +91,11 @@ public class Item : MonoBehaviour
     IEnumerator RotateItemY(float rotation)
     {
         // Debug.Log("Rotating item");
-        
+        Vector3 itemRotation = transform.rotation.eulerAngles;
+        itemRotation.x = Mathf.Round(itemRotation.x / 10) * 10;
+        itemRotation.y = Mathf.Round(itemRotation.y / 10) * 10;
+        itemRotation.z = Mathf.Round(itemRotation.z / 10) * 10;
+        transform.rotation = Quaternion.Euler(itemRotation);
         transform.Rotate(Vector3.right, rotation);
         yield return new WaitForSeconds(0.1f);
         
@@ -91,7 +104,6 @@ public class Item : MonoBehaviour
     public void PickUpItem(SelectEnterEventArgs args)
     {
         GameObject pickedItem = args.interactableObject.transform.gameObject;
-        SmartPlacement(false);
         if (pickedItem.GetComponent<Item>().isInSlot == true)
         {
             // Debug.Log("Picked up item: " + pickedItem.name);
@@ -105,7 +117,6 @@ public class Item : MonoBehaviour
     public void PutDownItem(SelectExitEventArgs args)
     {
         GameObject pickedItem = args.interactableObject.transform.gameObject;
-        grabInteractable.trackPosition = false;
         if (pickedItem != null)
         {
             pickedItem.tag = "LevelObject";
@@ -131,17 +142,21 @@ public class Item : MonoBehaviour
         }
     }
 
-    void SmartPlacement (bool isActivated)
+    void SmartPlacement (ActivateEventArgs args)
     {
-        if (!isActivated)
+        Vector3 itemRotation = transform.rotation.eulerAngles;
+        itemRotation.x = Mathf.Round(itemRotation.x / 10) * 10;
+        itemRotation.y = Mathf.Round(itemRotation.y / 10) * 10;
+        itemRotation.z = Mathf.Round(itemRotation.z / 10) * 10;
+        transform.rotation = Quaternion.Euler(itemRotation);
+        smartPlacementActivated = !smartPlacementActivated;
+        if (!smartPlacementActivated)
         {
-            grabInteractable.trackPosition = true;
             grabInteractable.trackRotation = true;
         }
         else {
-            grabInteractable.trackPosition = false;
             grabInteractable.trackRotation = false;
         }
-        Debug.Log("Smart Placement activated: " + isActivated);
+        Debug.Log("Smart Placement activated: " + smartPlacementActivated);
     }
 }
