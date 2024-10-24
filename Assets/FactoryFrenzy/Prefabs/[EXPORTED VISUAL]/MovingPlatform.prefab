@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 960825288453276164}
   - component: {fileID: 4297549340473857424}
   - component: {fileID: 213678828266580429}
+  - component: {fileID: 2489988680232311770}
   m_Layer: 0
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -231,6 +232,19 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &2489988680232311770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271983226867840762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2be0c42de4bfe247978f3f3af1d6a28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveToSphere: {fileID: 0}
 --- !u!1001 &2711446822593800556
 PrefabInstance:
   m_ObjectHideFlags: 0
