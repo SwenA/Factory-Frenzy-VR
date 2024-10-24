@@ -7,10 +7,17 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] private Transform slot;
-    [SerializeField] public Vector3 itemPos;
-    [SerializeField] public Quaternion itemRot;
-    [SerializeField] public Vector3 itemScale;
+    [SerializeField]
+    private Transform slot;
+
+    [SerializeField]
+    public Vector3 itemPos;
+
+    [SerializeField]
+    public Quaternion itemRot;
+
+    [SerializeField]
+    public Vector3 itemScale;
     XRGrabInteractable grabInteractable;
     public bool isInSlot = true;
     private bool canBeDestroyed = false;
@@ -36,12 +43,10 @@ public class Item : MonoBehaviour
         audioSourceDrop.clip = Resources.Load<AudioClip>("drop");
     }
 
-
-
     public void lockItem(ActivateEventArgs args)
     {
         // Check if the activating controller is the left hand
-        if ( args.interactorObject.transform.parent.name == "Left Controller" )
+        if (args.interactorObject.transform.parent.name == "Left Controller")
         {
             Debug.Log("Locked item: " + gameObject.name);
             isLocked = !isLocked;
@@ -50,7 +55,7 @@ public class Item : MonoBehaviour
             {
                 grabInteractable.trackPosition = false;
                 grabInteractable.trackRotation = false;
-                SetGlobalOpacity(0.5f);
+                SetGlobalOpacity(0.7f);
             }
             else
             {
@@ -61,7 +66,7 @@ public class Item : MonoBehaviour
         }
     }
 
-        // Fonction qui ajuste l'opacité de tous les matériaux d'un parent et de ses enfants
+    // Fonction qui ajuste l'opacité de tous les matériaux d'un parent et de ses enfants
     void SetGlobalOpacity(float opacity)
     {
         // Récupère tous les renderers de l'objet parent et de ses enfants
@@ -72,16 +77,56 @@ public class Item : MonoBehaviour
             // Pour chaque renderer, récupère tous les matériaux
             foreach (Material mat in renderer.materials)
             {
-                // Vérifie si le shader du matériau possède la propriété "_GlobalOpacity"
-                if (mat.HasProperty("Global Opacity"))
+                // Change le matériau en transparent
+                SetMaterialToTransparent(mat);
+
+                // Vérifie si le shader du matériau possède la propriété "_BaseColor" (ou "_Color")
+                if (mat.HasProperty("_BaseColor") || mat.HasProperty("_Color"))
                 {
-                    // Change la valeur de l'opacité globale
-                    mat.SetFloat("Global Opacity", opacity);
+                    // Récupère la couleur actuelle du matériau
+                    Color baseColor = mat.HasProperty("_BaseColor")
+                        ? mat.GetColor("_BaseColor")
+                        : mat.GetColor("_Color");
+
+                    // Modifie l'alpha (opacité)
+                    baseColor.a = opacity;
+
+                    // Applique la nouvelle couleur avec l'alpha modifié
+                    if (mat.HasProperty("_BaseColor"))
+                    {
+                        mat.SetColor("_BaseColor", baseColor);
+                    }
+                    else if (mat.HasProperty("_Color"))
+                    {
+                        mat.SetColor("_Color", baseColor);
+                    }
                 }
             }
         }
     }
 
+    // Fonction pour changer le mode de rendu du matériau en transparent
+    void SetMaterialToTransparent(Material mat)
+    {
+        // Change le mode de rendu en Transparent avec Alpha Blending
+        mat.SetFloat("_Surface", 1); // Surface Type : Transparent
+        mat.SetFloat("_Blend", 0); // Blending Mode : Alpha
+        mat.SetFloat("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+        mat.SetFloat("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+        mat.SetFloat("_ZWrite", 0); // Désactiver l'écriture dans le Z-buffer
+        mat.SetFloat("_AlphaClip", 0); // Alpha Clipping désactivé
+
+        mat.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");
+        mat.EnableKeyword("_BLENDMODE_ALPHA");
+        mat.DisableKeyword("_ALPHATEST_ON"); // Désactiver l'alpha test
+        mat.DisableKeyword("_ALPHAPREMULTIPLY_ON"); // Désactiver le mode Alpha premultiplied
+
+        // En fonction de tes paramètres, la face de rendu est "Front" seulement
+        mat.SetFloat("_Cull", (int)UnityEngine.Rendering.CullMode.Back);
+
+        // Configurer la file d'attente de rendu pour transparent
+        mat.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
+    }
 
     public void PickUpItem(SelectEnterEventArgs args)
     {
@@ -103,7 +148,7 @@ public class Item : MonoBehaviour
         if (pickedItem != null)
         {
             pickedItem.tag = "LevelObject";
-            if(canBeDestroyed)
+            if (canBeDestroyed)
             {
                 Destroy(pickedItem);
             }
