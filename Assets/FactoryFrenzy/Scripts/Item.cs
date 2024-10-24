@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -13,7 +14,8 @@ public class Item : MonoBehaviour
     XRGrabInteractable grabInteractable;
     public bool isInSlot = true;
     private bool canBeDestroyed = false;
-    // Start is called before the first frame update
+    private bool isLocked = false;
+
     void Start()
     {
         transform.localPosition = itemPos;
@@ -22,6 +24,7 @@ public class Item : MonoBehaviour
         grabInteractable = GetComponent<XRGrabInteractable>();
         grabInteractable.selectEntered.AddListener(PickUpItem);
         grabInteractable.selectExited.AddListener(PutDownItem);
+        grabInteractable.activated.AddListener(lockItem);
     }
 
     // Update is called once per frame
@@ -29,6 +32,51 @@ public class Item : MonoBehaviour
     {
 
     }
+
+    public void lockItem(ActivateEventArgs args)
+    {
+        // Check if the activating controller is the left hand
+        if ( args.interactorObject.transform.parent.name == "Left Controller" )
+        {
+            Debug.Log("Locked item: " + gameObject.name);
+            isLocked = !isLocked;
+
+            if (isLocked)
+            {
+                grabInteractable.trackPosition = false;
+                grabInteractable.trackRotation = false;
+                SetGlobalOpacity(0.5f);
+            }
+            else
+            {
+                grabInteractable.trackPosition = true;
+                grabInteractable.trackRotation = true;
+                SetGlobalOpacity(1.0f);
+            }
+        }
+    }
+
+        // Fonction qui ajuste l'opacité de tous les matériaux d'un parent et de ses enfants
+    void SetGlobalOpacity(float opacity)
+    {
+        // Récupère tous les renderers de l'objet parent et de ses enfants
+        Renderer[] renderers = GetComponentsInChildren<Renderer>();
+
+        foreach (Renderer renderer in renderers)
+        {
+            // Pour chaque renderer, récupère tous les matériaux
+            foreach (Material mat in renderer.materials)
+            {
+                // Vérifie si le shader du matériau possède la propriété "_GlobalOpacity"
+                if (mat.HasProperty("Global Opacity"))
+                {
+                    // Change la valeur de l'opacité globale
+                    mat.SetFloat("Global Opacity", opacity);
+                }
+            }
+        }
+    }
+
 
     public void PickUpItem(SelectEnterEventArgs args)
     {
