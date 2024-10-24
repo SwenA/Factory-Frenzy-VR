@@ -66,6 +66,7 @@ public class Item : MonoBehaviour
         }
     }
 
+    #region Design
     // Fonction qui ajuste l'opacité de tous les matériaux d'un parent et de ses enfants
     void SetGlobalOpacity(float opacity)
     {
@@ -77,8 +78,16 @@ public class Item : MonoBehaviour
             // Pour chaque renderer, récupère tous les matériaux
             foreach (Material mat in renderer.materials)
             {
-                // Change le matériau en transparent
-                SetMaterialToTransparent(mat);
+                if (opacity < 1.0f)
+                {
+                    // Change le matériau en transparent
+                    SetMaterialToTransparent(mat);
+                }
+                else
+                {
+                    // Change le matériau en opaque
+                    SetMaterialToOpaque(mat);
+                }
 
                 // Vérifie si le shader du matériau possède la propriété "_BaseColor" (ou "_Color")
                 if (mat.HasProperty("_BaseColor") || mat.HasProperty("_Color"))
@@ -128,6 +137,32 @@ public class Item : MonoBehaviour
         mat.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
     }
 
+    // Fonction pour changer le mode de rendu du matériau en opaque
+    void SetMaterialToOpaque(Material mat)
+    {
+        // Rétablir le mode de rendu en opaque
+        mat.SetFloat("_Surface", 0); // Surface Type : Opaque
+        mat.SetFloat("_Blend", 0); // Blending Mode : Opaque
+        mat.SetFloat("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One); // Source blend
+        mat.SetFloat("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero); // Destination blend
+        mat.SetFloat("_ZWrite", 1); // Activer l'écriture dans le Z-buffer
+        mat.SetFloat("_AlphaClip", 1); // Alpha Clipping activé
+
+        mat.DisableKeyword("_SURFACE_TYPE_TRANSPARENT");
+        mat.EnableKeyword("_ALPHATEST_ON"); // Activer le test alpha
+        mat.DisableKeyword("_BLENDMODE_ALPHA"); // Désactiver le blending alpha
+        mat.DisableKeyword("_ALPHAPREMULTIPLY_ON"); // Désactiver le mode Alpha premultiplied
+
+        // Rendre seulement la face avant (Cull Front)
+        mat.SetFloat("_Cull", (int)UnityEngine.Rendering.CullMode.Back); // Garder "Front"
+
+        // File d'attente de rendu pour opaque
+        mat.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Geometry;
+
+        // Paramètres additionnels selon ton image
+        mat.SetFloat("_ReceiveShadows", 1); // Activer les ombres
+    }
+
     public void PickUpItem(SelectEnterEventArgs args)
     {
         GameObject pickedItem = args.interactableObject.transform.gameObject;
@@ -141,6 +176,7 @@ public class Item : MonoBehaviour
         }
         audioSourceGrab.Play();
     }
+    #endregion
 
     public void PutDownItem(SelectExitEventArgs args)
     {
