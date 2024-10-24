@@ -9,6 +9,9 @@ using UnityEngine.XR.Provider;
 
 public class Item : MonoBehaviour
 {
+    public LayerMask snapMask;
+    public Transform[] anchorPoints;
+
     [SerializeField]
     private Transform slot;
 
@@ -33,6 +36,7 @@ public class Item : MonoBehaviour
     private AudioSource audioSourceDrop;
     private GameObject smartVisual;
     private GameObject normalVisual;
+    private float snapDistance = 1f;
 
     void Start()
     {
@@ -268,7 +272,19 @@ public class Item : MonoBehaviour
             pickedItem.tag = "LevelObject";
             normalVisual.SetActive(true);
             smartVisual.SetActive(false);
-            grabInteractable.trackRotation = true;
+            if (isLocked)
+            {
+                grabInteractable.trackRotation = false;
+            }
+            else
+            {
+                grabInteractable.trackRotation = true;
+            }
+            if (smartPlacementActivated)
+            {
+                Debug.Log("Trying to snap to nearby anchor");
+                TrySnapToNearbyAnchor();
+            }
             smartPlacementActivated = false;
             if (canBeDestroyed)
             {
@@ -295,7 +311,7 @@ public class Item : MonoBehaviour
 
     void SmartPlacement (ActivateEventArgs args)
     {
-        if (args.interactorObject.transform.parent.name == "Right Controller")
+        if (args.interactorObject.transform.parent.name == "Right Controller" && !isLocked)
         {
             Vector3 itemRotation = transform.rotation.eulerAngles;
             itemRotation.x = Mathf.Round(itemRotation.x / 10) * 10;
@@ -316,5 +332,62 @@ public class Item : MonoBehaviour
             }
             Debug.Log("Smart Placement activated: " + smartPlacementActivated);
         }
+    }
+
+
+    private void TrySnapToNearbyAnchor()
+    {
+        foreach (Transform anchor in anchorPoints)
+        {
+            Collider[] nearbyObjects = Physics.OverlapSphere(anchor.position, snapDistance, snapMask);
+            Debug.Log("Found " + nearbyObjects.Length + " nearby objects");
+            foreach (Collider col in nearbyObjects)
+            {
+                Debug.Log("Found nearby object: " + col.name);
+                Item nearbyAnchor = col.GetComponentInParent<Item>();
+                if (nearbyAnchor != null && nearbyAnchor.gameObject != gameObject)
+                {
+                    Debug.Log("Found nearby anchor: " + nearbyAnchor.name);
+                    Transform closestAnchor = FindClosestAnchor(anchor, nearbyAnchor.anchorPoints);
+
+                    if (closestAnchor != null)
+                    {
+                        Debug.Log("Snapping to anchor: " + closestAnchor.name);
+                        SnapToAnchor(anchor, closestAnchor);
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    private Transform FindClosestAnchor(Transform currentAnchor, Transform[] nearbyAnchors)
+    {
+        Transform closest = null;
+        float closestDistance = snapDistance;
+
+        foreach (Transform nearbyAnchor in nearbyAnchors)
+        {
+            float distance = Vector3.Distance(currentAnchor.position, nearbyAnchor.position);
+            if (distance < closestDistance)
+            {
+                Debug.Log("Found closer anchor: " + nearbyAnchor.name);
+                closest = nearbyAnchor;
+                closestDistance = distance;
+            }
+        }
+
+        return closest;
+    }
+
+    private void SnapToAnchor(Transform currentAnchor, Transform targetAnchor)
+    {
+        Debug.Log("targetRotation: " + targetAnchor.rotation);
+        Debug.Log("currentRotation: " + currentAnchor.rotation);
+        transform.rotation = targetAnchor.rotation; 
+        Vector3 offset = targetAnchor.position - currentAnchor.position;
+        Debug.Log("Offset: " + offset);
+
+        transform.position += offset;
     }
 }
