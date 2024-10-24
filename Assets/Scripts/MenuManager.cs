@@ -30,7 +30,7 @@ public class MenuManager : MonoBehaviour
         }
 
         // load all the levels in the levels folder
-        string[] levels = Directory.GetFiles(Path.Combine(Application.dataPath, "levels"), "*.json");
+        string[] levels = Directory.GetFiles(getLevelFolderPath(), "*.json");
 
         foreach (string level in levels)
         {
@@ -57,7 +57,7 @@ public class MenuManager : MonoBehaviour
     public void createMap()
     {   
         // check if there is already a file with the same name
-        if (File.Exists(Path.Combine(Application.dataPath, "levels", mapNameInputField.text + ".json")))
+        if (File.Exists(Path.Combine(getLevelFolderPath(), mapNameInputField.text + ".json")))
         {
             Debug.LogError("Map with the same name already exists");
             return;
@@ -85,14 +85,14 @@ public class MenuManager : MonoBehaviour
             string fileName = Path.GetFileNameWithoutExtension(paths[0]);
 
             // check if there is already a file with the same name
-            if (File.Exists(Path.Combine(Application.dataPath, "levels", fileName + ".json")))
+            if (File.Exists(Path.Combine(getLevelFolderPath(), fileName + ".json")))
             {
                 Debug.LogError("Map with the same name already exists");
                 return;
             }
 
             // copy the file to the levels folder
-            File.Copy(paths[0], Path.Combine(Application.dataPath, "levels", fileName + ".json"));
+            File.Copy(paths[0], Path.Combine(getLevelFolderPath(), fileName + ".json"));
 
             // instantiate a new level panel child of gridLevels
             GameObject levelPanel = Instantiate(levelPanelPrefab, gridLevels.transform);
@@ -113,5 +113,18 @@ public class MenuManager : MonoBehaviour
     {
         PlayerPrefs.SetString("mapName", levelName);
         SceneManager.LoadScene("EditorMap", LoadSceneMode.Single);
+    }
+
+    // Helper Functions //
+    private string getLevelFolderPath()
+    {
+        string levelFolderPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "FallGuysProj", "levels");
+
+        if (!Directory.Exists(levelFolderPath))
+        {
+            Directory.CreateDirectory(levelFolderPath);
+        }
+
+        return levelFolderPath;
     }
 }

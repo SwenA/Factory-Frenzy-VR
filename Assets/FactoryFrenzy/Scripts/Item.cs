@@ -9,11 +9,11 @@ using UnityEngine.XR.Provider;
 public class Item : MonoBehaviour
 {
     [SerializeField] private Transform slot;
-    [SerializeField] private Vector3 itemPos;
-    [SerializeField] private Quaternion itemRot;
-    [SerializeField] private Vector3 itemScale;
+    [SerializeField] public Vector3 itemPos;
+    [SerializeField] public Quaternion itemRot;
+    [SerializeField] public Vector3 itemScale;
     XRGrabInteractable grabInteractable;
-    private bool isInSlot = true;
+    public bool isInSlot = true;
     private bool canBeDestroyed = false;
     private InputDevice device;
     private bool rotationActivated = false;
@@ -97,7 +97,8 @@ public class Item : MonoBehaviour
             // Debug.Log("Picked up item: " + pickedItem.name);
             pickedItem.transform.localScale = Vector3.one;
             pickedItem.GetComponent<Item>().isInSlot = false;
-            Instantiate(gameObject, slot, false);
+            GameObject nvlobj = Instantiate(gameObject, slot, false);
+            nvlobj.GetComponent<Item>().isInSlot = true;
         }
     }
 
@@ -107,6 +108,7 @@ public class Item : MonoBehaviour
         grabInteractable.trackPosition = false;
         if (pickedItem != null)
         {
+            pickedItem.tag = "LevelObject";
             if(canBeDestroyed)
             {
                 Destroy(pickedItem);

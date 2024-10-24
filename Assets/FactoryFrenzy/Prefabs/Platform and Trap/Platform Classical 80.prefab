@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 173845920837595772}
   m_Layer: 0
   m_Name: Platform Classical 80
-  m_TagString: LevelObject
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
