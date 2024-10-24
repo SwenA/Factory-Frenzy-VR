@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.XR;
@@ -27,14 +28,16 @@ public class Item : MonoBehaviour
     private bool smartPlacementActivated = false; 
     private Vector3 itemLastRotation;
     private Vector3 itemLastPosition;
-    // Start is called before the first frame update
     private bool isLocked = false;
-
     private AudioSource audioSourceGrab;
     private AudioSource audioSourceDrop;
+    private GameObject smartVisual;
+    private GameObject normalVisual;
 
     void Start()
     {
+        normalVisual = transform.GetChild(0).gameObject;
+        smartVisual = transform.GetChild(1).gameObject;
         device = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
         transform.localPosition = itemPos;
         transform.localRotation = itemRot;
@@ -263,6 +266,10 @@ public class Item : MonoBehaviour
         if (pickedItem != null)
         {
             pickedItem.tag = "LevelObject";
+            normalVisual.SetActive(true);
+            smartVisual.SetActive(false);
+            grabInteractable.trackRotation = true;
+            smartPlacementActivated = false;
             if (canBeDestroyed)
             {
                 Destroy(pickedItem);
@@ -298,9 +305,13 @@ public class Item : MonoBehaviour
             smartPlacementActivated = !smartPlacementActivated;
             if (!smartPlacementActivated)
             {
+                normalVisual.SetActive(true);
+                smartVisual.SetActive(false);
                 grabInteractable.trackRotation = true;
             }
             else {
+                normalVisual.SetActive(false);
+                smartVisual.SetActive(true);
                 grabInteractable.trackRotation = false;
             }
             Debug.Log("Smart Placement activated: " + smartPlacementActivated);
