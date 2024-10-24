@@ -85,7 +85,7 @@ public class LevelManager : MonoBehaviour
         levelObject.rotation = obj.transform.rotation;
         levelObject.scale = obj.transform.localScale;
 
-        if (levelObject.prefabName == "Platform Move 520")
+        if (levelObject.prefabName == "Platform Move 520" || levelObject.prefabName == "MovingPlatform")
         {
           // ajouter a obj une variable vec 3
           levelObject.MoveToPosition = obj.GetComponent<MovePlat>().MoveToSphere.GetComponent<Transform>().position;
@@ -130,7 +130,7 @@ public class LevelManager : MonoBehaviour
 
                     obj.tag = "LevelObject";
 
-                    if (prefab.name == "Platform Move 520")
+                    if (prefab.name == "Platform Move 520" || prefab.name == "MovingPlatform")
                     {
                         
                         // instanciate the default sphere
