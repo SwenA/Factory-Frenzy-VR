@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -8,10 +9,17 @@ using UnityEngine.XR.Provider;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] private Transform slot;
-    [SerializeField] public Vector3 itemPos;
-    [SerializeField] public Quaternion itemRot;
-    [SerializeField] public Vector3 itemScale;
+    [SerializeField]
+    private Transform slot;
+
+    [SerializeField]
+    public Vector3 itemPos;
+
+    [SerializeField]
+    public Quaternion itemRot;
+
+    [SerializeField]
+    public Vector3 itemScale;
     XRGrabInteractable grabInteractable;
     public bool isInSlot = true;
     private bool canBeDestroyed = false;
@@ -21,6 +29,11 @@ public class Item : MonoBehaviour
     private Vector3 itemLastRotation;
     private Vector3 itemLastPosition;
     // Start is called before the first frame update
+    private bool isLocked = false;
+
+    private AudioSource audioSourceGrab;
+    private AudioSource audioSourceDrop;
+
     void Start()
     {
         device = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
@@ -112,6 +125,7 @@ public class Item : MonoBehaviour
             GameObject nvlobj = Instantiate(gameObject, slot, false);
             nvlobj.GetComponent<Item>().isInSlot = true;
         }
+        audioSourceGrab.Play();
     }
 
     public void PutDownItem(SelectExitEventArgs args)
@@ -120,11 +134,12 @@ public class Item : MonoBehaviour
         if (pickedItem != null)
         {
             pickedItem.tag = "LevelObject";
-            if(canBeDestroyed)
+            if (canBeDestroyed)
             {
                 Destroy(pickedItem);
             }
         }
+        audioSourceDrop.Play();
     }
     void OnTriggerEnter(Collider other)
     {
